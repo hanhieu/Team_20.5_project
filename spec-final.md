@@ -94,7 +94,7 @@ Nếu sai ngược lại: Low precision → user nhận thông tin sai về giá
 
 |   | Conservative | Realistic | Optimistic |
 |---|-------------|-----------|------------|
-| **Assumption** | 500 query/ngày, 60% resolve không cần hotline, triển khai 5 tỉnh | 3.000 query/ngày, 75% resolve, triển khai 20 tỉnh | 10.000 query/ngày, 85% resolve, tích hợp toàn app 60 tỉnh |
+| **Assumption** | 500 query/ngày, 60% resolve không cần hotline, triển khai 5 tỉnh (chủ yếu HN, HCM) | 3.000 query/ngày, 75% resolve, triển khai 20 tỉnh — bao gồm các điểm du lịch lớn (Đà Nẵng, Hội An, Phú Quốc) nơi tỷ lệ khách nước ngoài cao | 10.000 query/ngày, 85% resolve, tích hợp toàn app 60 tỉnh + English-first UX thu hút khách quốc tế — VN đón ~18M khách nước ngoài/năm, Xanh SM có cơ hội trở thành default mobility app cho tourist |
 | **Cost** | ~$5/ngày inference + $500/tháng maintenance | ~$25/ngày + $1.000/tháng | ~$80/ngày + $2.000/tháng |
 | **Benefit** | Giảm 300 cuộc gọi hotline/ngày (~15 phút/cuộc × 50.000đ/phút agent) = ~225M VND/tháng tiết kiệm | Giảm 2.250 cuộc gọi/ngày = ~1,35 tỷ VND/tháng + tăng conversion đặt xe 5% | Giảm 8.500 cuộc gọi/ngày = ~5,1 tỷ VND/tháng + tăng retention 8% + data flywheel cho personalization |
 | **Net** | ~225M VND/tháng benefit − ~4,5M VND/tháng cost ≈ **+220M VND/tháng** | ~1,35 tỷ/tháng − ~20M/tháng ≈ **+1,33 tỷ VND/tháng** | ~5,1 tỷ/tháng − ~60M/tháng ≈ **+5,04 tỷ VND/tháng + competitive moat** |
@@ -105,7 +105,7 @@ Nếu sai ngược lại: Low precision → user nhận thông tin sai về giá
 
 ## 6. Mini AI spec
 
-**Xanh SM AI Support Chatbot** giải quyết bài toán: hành khách mất thời gian tìm thông tin dịch vụ qua nhiều kênh rời rạc (website, hotline, mạng xã hội), đặc biệt người dùng mới và khách du lịch chưa quen với hệ sinh thái Xanh SM.
+**Xanh SM AI Support Chatbot** giải quyết bài toán: hành khách — đặc biệt khách nước ngoài tại Việt Nam — mất thời gian tìm thông tin dịch vụ qua nhiều kênh rời rạc, gặp rào cản ngôn ngữ, và không biết bắt đầu từ đâu khi cần di chuyển tại một đất nước xa lạ. Khách nước ngoài là nhóm user có nhu cầu mobility cao hơn người địa phương (không có xe riêng, không quen đường, phụ thuộc hoàn toàn vào ride-hailing) nhưng lại được phục vụ kém nhất bởi hệ thống hỗ trợ hiện tại của Xanh SM (hotline tiếng Việt, website chủ yếu tiếng Việt).
 
 **Cho ai:** Hai nhóm user chính:
 - **Khách nước ngoài tại Việt Nam** (du lịch, expat, công tác) — nhóm dùng mobility service nhiều hơn người địa phương vì không có xe riêng, không quen đường, phụ thuộc hoàn toàn vào dịch vụ đặt xe. Rào cản lớn: website/hotline chủ yếu tiếng Việt, không biết phân biệt các gói dịch vụ, không biết khu vực nào được phục vụ.
@@ -124,4 +124,4 @@ Nếu sai ngược lại: Low precision → user nhận thông tin sai về giá
 
 **Data flywheel:** Mỗi lần user tương tác → thumbs up/down + correction log → cập nhật knowledge base hàng tuần → model tốt hơn → escalation rate giảm → tiết kiệm chi phí hotline → reinvest vào data quality. Dữ liệu domain-specific (FAQ taxi điện VN + phản hồi cộng đồng Xanh SM) có marginal value cao vì model chung không có. Không đối thủ nào (Grab, Be, Gojek) có data này — competitive moat từ data, không phải từ model.
 
-**Stack đề xuất:** Gemini Flash (low latency <3s, cost-effective $0.002-0.005/query) + RAG trên knowledge base FAQ + social media crawler (Facebook, Google Reviews) với tier-based trust scoring + intent classifier để route câu hỏi khẩn cấp + monitoring dashboard cho content team track stale entries.
+**Stack đề xuất:** Gemini Flash (low latency <3s, cost-effective $0.002-0.005/query, hỗ trợ đa ngôn ngữ tốt) + RAG trên knowledge base FAQ (tiếng Việt + tiếng Anh) + social media crawler (Facebook, Google Reviews, TripAdvisor, Reddit r/VietnamTravel — nơi khách nước ngoài hay hỏi về mobility tại VN) với tier-based trust scoring + intent classifier để route câu hỏi khẩn cấp + auto language detection để trả lời đúng ngôn ngữ user + monitoring dashboard cho content team track stale entries.
