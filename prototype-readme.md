@@ -103,7 +103,7 @@ chainlit run app.py -w
 |---|---|---|
 | Nguyễn Bình Thành | Full-stack prototype: RAG pipeline, ChromaDB, Chainlit UI, dual-search retriever, Facebook data ingestion | `app.py`, `bot/`, `rag/`, `config.py` |
 | Hàn Quang Hiếu | Lên ý tưởng và viết hoàn chỉnh các phần spec (AI Product Canvas, User Stories 4 paths, Eval metrics, Failure modes, ROI, Mini AI spec); đề xuất insight foreigners là nhóm user chính bị underserved; xây dựng tool crawl website FAQ chính thức Xanh SM; xây dựng tool thu thập dữ liệu từ Facebook Group để bổ sung câu hỏi thường gặp từ cộng đồng; xây dựng khung prototype | `spec-final.md` (toàn bộ phần 1–6); `crawlFAQ.py`; `xanhsm_faqs.json`; `prototype-readme.md` |
-| Phan Anh Khôi | Thiết kế architecture và UX, tìm nguồn data, viết prompt, làm prototype demo | `bot/handlers/`, `app.py` |
+| Phan Anh Khôi | Làm UI, thiết kế architecture và UX, tìm nguồn data, viết system prompt, làm prototype demo; đề xuất bổ sung tool viết lại query dựa trên memory; quản lý UX và thiết kế test case cho sản phẩm | `bot/handlers/`, `app.py`, `.chainlit/config.toml`, `public/theme.json` |
 |Bùi Đức Thắng | sửa lỗi và hoàn thiện canvas,hoàn chỉnh bản SPEC cho Xanh SM AI Support Chatbot, bao gồm đầy đủ các phần: AI Product Canvas, User Stories theo 4 paths (Happy / Low‑confidence / Failure / Correction), Eval metrics & threshold, Top failure modes, ROI 3 kịch bản, và Mini AI spec. Spec được thiết kế theo hướng precision‑first, tập trung vào việc thay thế hotline ở các câu hỏi thông thường nhưng vẫn đảm bảo khả năng escalate khi cần. | `spec-final.md` phần 2, `canvas-final.md` |
 
 
