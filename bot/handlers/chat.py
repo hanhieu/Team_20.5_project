@@ -17,9 +17,11 @@ async def handle_chat(user_message: str, user_type: str):
     chunks = retrieve(user_message, user_type, top_k=TOP_K)
 
     if chunks:
-        context = "\n\n".join(
-            f"Q: {c['question']}\nA: {c['answer']}" for c in chunks
-        )
+        parts = []
+        for c in chunks:
+            label = "[Cộng đồng]" if c["category"] == "community" else "[Chính thức]"
+            parts.append(f"{label}\nQ: {c['question']}\nA: {c['answer']}")
+        context = "\n\n".join(parts)
     else:
         context = "(Không tìm thấy thông tin liên quan.)"
 
