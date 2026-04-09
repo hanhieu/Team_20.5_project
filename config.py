@@ -8,4 +8,4 @@ OPENAI_MODEL = "gpt-4o"
 CHROMA_PATH = ".chromadb"
 COLLECTION_NAME = "xanhsm_qa"
 EMBEDDING_MODEL = "keepitreal/vietnamese-sbert"
-TOP_K = 2  # per search (user_type + all), max ~4 unique chunks total
+TOP_K = 3  # per search (user_type + all), max ~6 unique chunks total
