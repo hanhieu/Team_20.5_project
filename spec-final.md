@@ -1,6 +1,6 @@
 # SPEC — AI Product Hackathon
 
-**Nhóm:** 20.5
+**Nhóm:** 29
 **Track:** ☑ XanhSM
 **Problem statement:** Khách hàng Xanh SM — đặc biệt khách nước ngoài tại Việt Nam, nhóm dùng dịch vụ di chuyển nhiều hơn người địa phương nhưng lại gặp rào cản ngôn ngữ và thiếu thông tin — mất thời gian tìm kiếm thông tin dịch vụ, giá cước, chính sách qua nhiều kênh rời rạc — AI chatbot đa ngôn ngữ tổng hợp FAQ chính thức + phản hồi cộng đồng để trả lời tức thì và gợi ý dịch vụ phù hợp ngay trong app.
 

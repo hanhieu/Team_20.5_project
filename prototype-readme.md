@@ -46,7 +46,7 @@ GPT-4o stream response (có ghi rõ nguồn [Chính thức] / [Cộng đồng])
 ## Cấu trúc project
 
 ```
-Team_20.5_project/
+Team_29_project/
 ├── app.py                    # Chainlit entry point
 ├── config.py                 # API keys, model, constants
 ├── bot/
