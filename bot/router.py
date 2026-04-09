@@ -5,6 +5,8 @@ from bot.tools.intent_detector import detect_intent
 
 BOT_NAME = "XanhSM"
 
+HOTLINE_NUMBER = "1900 2088"
+
 
 async def route(message: cl.Message):
     intent = await detect_intent(message.content)
@@ -30,6 +32,18 @@ async def route(message: cl.Message):
         # Người dùng từ chối hoặc timeout → xử lý như câu hỏi thông thường
         user_type = cl.user_session.get("user_type")
         await handle_chat(message.content, user_type)
+        return
+
+    if intent == "human_escalation":
+        await cl.Message(
+            content=(
+                "Mình hiểu rằng chatbot chưa giải quyết được vấn đề của bạn. "
+                "Hãy liên hệ trực tiếp với tổng đài Xanh SM để được hỗ trợ ngay:\n\n"
+                f"📞 **Hotline: {HOTLINE_NUMBER}**\n\n"
+                "Tổng đài hoạt động **24/7**, nhân viên sẽ hỗ trợ bạn trực tiếp."
+            ),
+            author=BOT_NAME,
+        ).send()
         return
 
     user_type = cl.user_session.get("user_type")
