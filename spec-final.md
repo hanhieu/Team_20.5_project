@@ -34,23 +34,36 @@ Justify: *AI gợi ý và trả lời, user quyết định cuối cùng. Với 
 
 | Path | Câu hỏi thiết kế | Mô tả |
 |------|-------------------|-------|
-| Happy — AI đúng, tự tin | User thấy gì? Flow kết thúc ra sao? | AI trả lời đúng theo vai trò (VD: tài xế hỏi chính sách thưởng) → user áp dụng ngay |
-| Low-confidence — AI không chắc | System báo thế nào? User quyết thế nào? | AI hiển thị mức độ không chắc + gợi ý xác nhận qua app hoặc hotline |
-| Failure — AI sai | User biết AI sai bằng cách nào? Recover ra sao? | User phát hiện sai khi thao tác → nhấn “Báo sai” |
-| Correction — user sửa | User sửa bằng cách nào? Data đó đi vào đâu? | “Báo sai”(dislike) → correction log → content team update KB |
+| Happy — AI đúng, tự tin | User thấy gì? Flow kết thúc ra sao? | User hỏi *”Tôi bị tai nạn rồi phải làm sao”* → bot trả lời 6 bước an toàn (sơ cứu, báo cảnh sát 113, liên hệ bảo hiểm…) kèm hotline 1900 2097 — nguồn `[Chính thức]`, user áp dụng ngay không cần gọi hotline *(Test 1)* |
+| Low-confidence — AI không chắc | System báo thế nào? User quyết thế nào? | User hỏi *”Đi 20km hết bao nhiêu tiền”* — thiếu loại dịch vụ + thành phố → bot hỏi lại từng bước (loại dịch vụ? → Premium; thành phố? → Hà Nội) → tính được 313.600 VNĐ *(Test 2)* |
+| Failure — AI sai | User biết AI sai bằng cách nào? Recover ra sao? | User phát hiện giá sai khi đối chiếu app thực tế → nhấn 👎 Dislike → correction log → content team review + cập nhật `data/qa.json` |
+| Correction — user sửa | User sửa bằng cách nào? Data đó đi vào đâu? | 👎 Dislike → correction log → content team update KB → re-ingest ChromaDB |
 
 ---
 
-### Feature: Gợi ý hành động phù hợp (đặt xe / kiểm tra chính sách)
+### Feature: Tra cứu giá cước thực tế (tool calling)
 
-**Trigger:** User mô tả nhu cầu (VD: hành khách cần đi sân bay, tài xế hỏi chính sách peak hour)
+**Trigger:** User hỏi giá cước kèm thông tin đủ (thành phố + loại dịch vụ) → intent không phải `driver_registration` → GPT-4o gọi tool `lookup_fare(city, service_type)`
 
 | Path | Câu hỏi thiết kế | Mô tả |
 |------|-------------------|-------|
-| Happy — AI đúng, tự tin | User thấy gì? | AI gợi ý đúng hành động + CTA |
-| Low-confidence — AI không chắc | System báo thế nào? | AI đưa 2 lựa chọn + hỏi user xác nhận |
-| Failure — AI sai | Recover ra sao? | User phản hồi → AI hỏi lại thông tin |
-| Correction — user sửa | Data đi vào đâu? | Implicit signal → cải thiện recommendation |
+| Happy — AI đúng, tự tin | User thấy gì? | Multi-turn: *”Đi 20km hết bao nhiêu”* → bot hỏi lại 2 lần → đủ thông tin → tool `lookup_fare(“ha_noi”, “premium”)` → trả về bảng phân tầng km + tổng 313.600 VNĐ *(Test 2)* |
+| Low-confidence — AI không chắc | System báo thế nào? | Thiếu thành phố hoặc loại dịch vụ → bot hỏi lại từng bước, không đoán mò |
+| Failure — AI sai | Recover ra sao? | Giá trả về lệch thực tế (data stale) → user báo sai → disclaimer “Mức cước có thể thay đổi theo thực tế” xuất hiện trong mọi câu trả lời giá |
+| Correction — user sửa | Data đi vào đâu? | Correction log → team cập nhật `Dataset/pricedata.json` |
+
+---
+
+### Feature: Trả lời dựa trên dữ liệu cộng đồng Facebook
+
+**Trigger:** Câu hỏi về kinh nghiệm thực tế (thu nhập, giờ chạy, BHXH…) không có trong FAQ chính thức → RAG tìm thấy posts Facebook Group tài xế
+
+| Path | Câu hỏi thiết kế | Mô tả |
+|------|-------------------|-------|
+| Happy — AI đúng, tự tin | User thấy gì? | User hỏi thu nhập thực tế tài xế taxi → bot trả lời dựa trên posts cộng đồng *”tháng bèo bèo 30 triệu cầm về”*, gắn nhãn `[Cộng đồng]` rõ ràng, khuyến nghị liên hệ Xanh SM để xác nhận BHXH *(Test 3)* |
+| Low-confidence — AI không chắc | System báo thế nào? | Bot hỏi thêm vai trò (taxi hay bike?) trước khi trả lời để lọc đúng nguồn cộng đồng theo `user_type` |
+| Failure — AI sai | Recover ra sao? | Data cộng đồng nhiễu / lỗi thời → bot ưu tiên nguồn `[Chính thức]` khi có, chỉ dùng cộng đồng làm ngữ cảnh bổ trợ |
+| Correction — user sửa | Data đi vào đâu? | 👎 Dislike → flag post Facebook để loại khỏi KB trong lần re-ingest tiếp theo |
 
 ---
 
@@ -60,9 +73,9 @@ Justify: *AI gợi ý và trả lời, user quyết định cuối cùng. Với 
 
 | Path | Câu hỏi thiết kế | Mô tả |
 |------|-------------------|-------|
-| Happy — AI đúng, tự tin | User thấy gì? Flow kết thúc ra sao? | Bot xác nhận intent → user chọn "✅ Xác nhận" → form 5 bước (họ tên, SĐT, hạng bằng, địa điểm, nhu cầu) → submit thành công |
-| Low-confidence — AI không chắc | System báo thế nào? | Bot hỏi lại "Bạn có muốn đăng ký tài xế không?" trước khi vào flow, user có thể từ chối |
-| Failure — AI sai | Recover ra sao? | User nhấn "❌ Không phải" → bot quay về xử lý câu hỏi bình thường |
+| Happy — AI đúng, tự tin | User thấy gì? Flow kết thúc ra sao? | User nhắn *”Tôi muốn làm tài xế XanhSM”* → intent `driver_registration` → bot xác nhận *”Bạn có muốn đăng ký không?”* → user chọn ✅ Xác nhận → form 5 bước (họ tên, SĐT, hạng bằng, địa điểm, nhu cầu) → submit thành công *(Test 4)* |
+| Low-confidence — AI không chắc | System báo thế nào? | Bot hỏi lại *”Bạn có muốn đăng ký tài xế không?”* trước khi vào flow, user có thể từ chối |
+| Failure — AI sai | Recover ra sao? | User nhấn ❌ Không phải → bot quay về xử lý câu hỏi bình thường |
 | Correction — user sửa | Data đi vào đâu? | Form lưu vào `data/driver_applications.jsonl` — team review thủ công |
 
 ---
