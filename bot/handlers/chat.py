@@ -14,9 +14,11 @@ logger = logging.getLogger(__name__)
 client = AsyncOpenAI(api_key=OPENAI_API_KEY)
 
 SYSTEM_TEMPLATE = '''<persona>
-Bạn là trợ lý ảo hỗ trợ trả lời các câu hỏi liên quan đến dịch vụ taxi công nghệ thuần điện và giao đồ ăn XanhSM.
-Nhiệm vụ của bạn là trả lời câu hỏi của hành khách, tài xế taxi, tài xế bike, hoặc nhà hàng dựa trên thông tin được cung cấp.
-Hãy trả lời câu hỏi lịch sự và thân thiện như một tư vấn viên chuyên nghiệp.
+Bạn là Trợ lý AI Hỗ trợ của Xanh SM.
+
+Mục tiêu chính của bạn là cung cấp thông tin chính xác, an toàn và cập nhật nhất.
+Bạn LUÔN ưu tiên sự chính xác hơn sự đầy đủ.
+Nếu bạn không chắc chắn, hãy nói rõ và chuyển lên cấp trên xử lý.
 </persona>
 
 <user_profile>
@@ -32,6 +34,18 @@ Loại người dùng: {user_type_label}
 - Thông tin [Cộng đồng] là bình luận từ người dùng trên mạng xã hội, KHÔNG phải câu trả lời chính thức. Chỉ dùng để hiểu thêm ngữ cảnh, KHÔNG được trích dẫn hoặc lặp lại nội dung này như câu trả lời.
 - Khi người dùng hỏi về giá cước, phí đi xe, chi phí chuyến đi tại một thành phố cụ thể, hãy sử dụng tool lookup_fare để tra cứu và trình bày kết quả rõ ràng. Tool này không phụ thuộc vào <context>.
 </rules>
+
+<feedback_policy>
+QUAN TRỌNG — Chính sách phản hồi người dùng:
+Người dùng có thể cung cấp phản hồi bằng tính năng "Báo sai" (👎 Dislike) hoặc "Hài lòng" (👍 Like).
+Phản hồi "Báo sai" là TÍN HIỆU ĐÁNH GIÁ CỦA CON NGƯỜI CÓ GIÁ TRỊ CAO.
+Bạn phải xử lý nghiêm túc và KHÔNG bao giờ tranh luận hay bác bỏ phản hồi của người dùng.
+Nếu câu trả lời trước của bạn bị đánh dấu là sai, hãy:
+1. Thừa nhận rằng câu trả lời trước có thể chưa chính xác.
+2. Cẩn thận kiểm tra lại thông tin trong <context>.
+3. Đưa ra câu trả lời được cải thiện hoặc thừa nhận giới hạn kiến thức của bạn.
+4. Không bao giờ lặp lại câu trả lời sai đã bị báo cáo.
+</feedback_policy>
 
 <context>
 {context}
@@ -88,12 +102,35 @@ async def handle_chat(user_message: str, user_type: str):
     history.append({"role": "user", "content": user_message})
     messages = [{"role": "system", "content": system_prompt}] + history
 
+    # Inject pending feedback signal if user disliked the previous response
+    pending_feedback = cl.user_session.get("pending_feedback")
+    if pending_feedback:
+        feedback_note = (
+            f"[FEEDBACK_SIGNAL] Câu trả lời trước của bạn (về câu hỏi: "
+            f'"{pending_feedback.get("user_question", "")}") '
+            f"đã bị người dùng đánh dấu là SAI (👎). "
+            f"Nội dung câu trả lời sai đó là: \"{pending_feedback.get('bot_answer', '')}\"\n"
+            f"Hãy trả lời câu hỏi lần này một cách thận trọng hơn, "
+            f"kiểm tra kỹ thông tin trong <context> và không lặp lại thông tin sai đó."
+        )
+        messages = [{"role": "system", "content": feedback_note}] + messages
+        cl.user_session.set("pending_feedback", None)
+        logger.info("[FEEDBACK] Injected dislike signal into prompt")
+
     msg = cl.Message(content="", author=BOT_NAME)
     await msg.send()
 
     full_response = await _chat_with_tools(messages, msg)
 
     await msg.update()
+
+    # Store message_id → {question, answer} mapping for feedback lookup
+    msg_store: dict = cl.user_session.get("msg_store") or {}
+    msg_store[msg.id] = {
+        "user_question": user_message,
+        "bot_answer": full_response,
+    }
+    cl.user_session.set("msg_store", msg_store)
 
     elapsed = time.monotonic() - t0
     logger.info(
