@@ -37,7 +37,7 @@ Justify: *AI gợi ý và trả lời, user quyết định cuối cùng. Với 
 | Happy — AI đúng, tự tin | User thấy gì? Flow kết thúc ra sao? | AI trả lời đúng theo vai trò (VD: tài xế hỏi chính sách thưởng) → user áp dụng ngay |
 | Low-confidence — AI không chắc | System báo thế nào? User quyết thế nào? | AI hiển thị mức độ không chắc + gợi ý xác nhận qua app hoặc hotline |
 | Failure — AI sai | User biết AI sai bằng cách nào? Recover ra sao? | User phát hiện sai khi thao tác → nhấn “Báo sai” |
-| Correction — user sửa | User sửa bằng cách nào? Data đó đi vào đâu? | “Báo sai” → correction log → content team update KB |
+| Correction — user sửa | User sửa bằng cách nào? Data đó đi vào đâu? | “Báo sai”(dislike) → correction log → content team update KB |
 
 ---
 
@@ -91,7 +91,7 @@ Justify: *AI gợi ý và trả lời, user quyết định cuối cùng. Với 
 
 ---
 
-## 6. Mini AI spec (1 trang)
+## 6. Mini AI spec
 
 Xanh SM AI Support Chatbot là chatbot hỗ trợ đa vai trò trong hệ sinh thái Xanh SM, phục vụ đồng thời hành khách, tài xế taxi, tài xế bike và nhà hàng đối tác. Sản phẩm tập trung giải quyết bài toán thông tin rời rạc và không phân loại theo user role — nguyên nhân chính khiến hotline quá tải.
 

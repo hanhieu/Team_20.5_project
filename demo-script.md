@@ -18,10 +18,10 @@
 
 ## Checklist trước demo
 
-- [ ] Demo script viết ra giấy, mỗi người biết phần mình
-- [ ] Dry run ít nhất 1 lần, bấm giờ (không quá 2 phút)
+- [x] Demo script viết sẵn, mỗi người biết phần mình
+- [x] Dry run ít nhất 1 lần, bấm giờ (không quá 2 phút)
 - [ ] Backup plan nếu demo crash (screenshot hoặc video)
-- [ ] Mỗi người trả lời được 3 câu hỏi:
+- [x] Mỗi người trả lời được 3 câu hỏi:
   - "Auto hay augmentation? Tại sao?"
   - "Failure mode chính là gì?"
   - "Phần mình làm gì trong project?"
@@ -39,4 +39,4 @@
 
 ---
 
-*Demo Script — Nhóm ___ — Track XanhSM — Day 6 Hackathon*
+*Demo Script — Nhóm 29 — Track XanhSM — Day 6 Hackathon*
