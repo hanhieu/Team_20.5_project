@@ -1,6 +1,6 @@
 {
 "priceData": {
-                    "taxi": {
+            "taxi": {
             "columns": "Giá dịch vụ|Giá niêm yết (VNĐ)",
             "rows": [
                 {
@@ -2445,859 +2445,235 @@
                     }
                 ]
             },
-            "luxury": {
-                "columns": "Giá dịch vụ|Giá niêm yết (VNĐ)",
-                "rows": [
+            "bike": {
+        "columns": "Giá niêm yết|Xanh SM Bike (VNĐ)|Xanh SM Bike Plus (VNĐ)",
+        "rows": [
+            {
+                "city": "Hà Nội",
+                "items": [
                     {
-                        "city": "Hà Nội",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (2 km đầu)",
-                                "value2": "34.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "19.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "19.500"
-                            }
-                        ]
+                        "value1": "Giá khởi hành (02 km đầu)",
+                        "value2": "13.200",
+                        "value3": "15.700"
                     },
                     {
-                        "city": "TP. Hồ Chí Minh",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (2 km đầu)",
-                                "value2": "34.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "19.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "19.500"
-                            }
-                        ]
+                        "value1": "Giá tiếp theo (từ km tiếp theo)",
+                        "value2": "4.200",
+                        "value3": "5.200"
                     },
                     {
-                        "city": "Thừa Thiên Huế",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (2 km đầu)",
-                                "value2": "34.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "18.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "13.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Khánh Hòa",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (2 km đầu)",
-                                "value2": "34.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 30",
-                                "value2": "19.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 31 trở đi",
-                                "value2": "13.500"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Đà Nẵng",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (2 km đầu)",
-                                "value2": "34.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "19.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "19.500"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Phú Quốc",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (1 km đầu)",
-                                "value2": "12.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 30",
-                                "value2": "17.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 31 trở đi",
-                                "value2": "15.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Quảng Ninh",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (2 km đầu)",
-                                "value2": "34.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "16.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "16.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "16.500"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Hưng Yên",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "15.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "15.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "15.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "14.500"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Quảng Nam",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (1 km đầu)",
-                                "value2": "21.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "19.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "19.500"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Thái Nguyên",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,25 km đầu)",
-                                "value2": "12.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 20",
-                                "value2": "16.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 21 trở đi",
-                                "value2": "14.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Vĩnh Phúc",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "12.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "16.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "15.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Bắc Ninh",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5km đầu)",
-                                "value2": "10.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "16.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "13.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Thanh Hóa",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (1 km đầu)",
-                                "value2": "18.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "17.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "17.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "16.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Quảng Bình",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (1 km đầu)",
-                                "value2": "21.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "19.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "19.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Bình Dương",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (2 km đầu)",
-                                "value2": "34.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "19.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "17.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Vũng Tàu",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (2 km đầu)",
-                                "value2": "34.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 30",
-                                "value2": "18.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 31 trở đi",
-                                "value2": "14.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Đồng Nai",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (2 km đầu)",
-                                "value2": "34.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "19.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "17.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Phú Thọ",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "12.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "16.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "14.500"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Hải Dương",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "15.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "16.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "16.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "14.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Nam Định",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "12.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "16.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "14.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Tây Ninh",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "10.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "17.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "16.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Quảng Ngãi",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (1 km đầu)",
-                                "value2": "20.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 30",
-                                "value2": "19.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 31 trở đi",
-                                "value2": "14.500"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Thái Bình",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (1 km đầu)",
-                                "value2": "12.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "17.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 20",
-                                "value2": "17.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 21 trở đi",
-                                "value2": "13.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Gia Lai",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "12.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 30",
-                                "value2": "17.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km 31 trở đi",
-                                "value2": "13.500"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Ninh Bình",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "12.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "18.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "16.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Tiền Giang",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "12.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 30",
-                                "value2": "17.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km 31 trở đi",
-                                "value2": "13.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Hà Nam",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "12.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "17.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "17.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "14.500"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Cần Thơ",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "12.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 30",
-                                "value2": "17.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km 31 trở đi",
-                                "value2": "15.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Long An",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "20.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "18.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "14.500"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Lào Cai",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "15.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "16.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "15.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Lạng Sơn",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (1 km đầu)",
-                                "value2": "15.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "15.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 30",
-                                "value2": "15.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 31 trở đi",
-                                "value2": "12.500"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Phú Yên",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "12.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "15.800"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "11.100"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "9.400"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Bình Phước",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "18.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "16.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "16.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "15.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Hòa Bình",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (1 km đầu)",
-                                "value2": "20.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "18.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 30",
-                                "value2": "18.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 31 trở đi",
-                                "value2": "14.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Kon Tum",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "17.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "18.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 30",
-                                "value2": "18.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km 31 trở đi",
-                                "value2": "14.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Bến Tre",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "15.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "17.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 30",
-                                "value2": "17.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 31 trở đi",
-                                "value2": "13.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Đồng Tháp",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "-"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "-"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 30",
-                                "value2": "-"
-                            },
-                            {
-                                "value1": "Giá cước từ km 31 trở đi",
-                                "value2": "-"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Yên Bái",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "14.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "15.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 30",
-                                "value2": "15.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km 31 trở đi",
-                                "value2": "12.500"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Tuyên Quang",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,25 km đầu)",
-                                "value2": "14.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "16.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "16.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "14.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Quảng Trị",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (1 km đầu)",
-                                "value2": "24.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "19.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 30",
-                                "value2": "19.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km 31 trở đi",
-                                "value2": "13.500"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Trà Vinh",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "11.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "16.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 30",
-                                "value2": "16.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 31 trở đi",
-                                "value2": "14.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Bạc Liêu",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,3 km đầu)",
-                                "value2": "22.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "17.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 25",
-                                "value2": "17.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km 26 trở đi",
-                                "value2": "14.500"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Sóc Trăng",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "21.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "17.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 30",
-                                "value2": "17.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 31 trở đi",
-                                "value2": "15.000"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Vĩnh Long",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,5 km đầu)",
-                                "value2": "21.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "17.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 30",
-                                "value2": "17.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 31 trở đi",
-                                "value2": "14.500"
-                            }
-                        ]
-                    },
-                    {
-                        "city": "Hà Giang",
-                        "items": [
-                            {
-                                "value1": "Giá mở cửa (0,25 km đầu)",
-                                "value2": "14.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 12",
-                                "value2": "16.500"
-                            },
-                            {
-                                "value1": "Giá cước từ km tiếp theo đến km 30",
-                                "value2": "15.000"
-                            },
-                            {
-                                "value1": "Giá cước từ km 31 trở đi",
-                                "value2": "12.500"
-                            }
-                        ]
+                        "value1": "Phí thời gian di chuyển (VNĐ/phút)",
+                        "value2": "275",
+                        "value3": "290"
                     }
                 ]
+            },
+            {
+                "city": "TP. Hồ Chí Minh",
+                "items": [
+                    {
+                        "value1": "Giá khởi hành (02 km đầu)",
+                        "value2": "12.200",
+                        "value3": "15.700"
+                    },
+                    {
+                        "value1": "Giá tiếp theo (từ km tiếp theo)",
+                        "value2": "4.200",
+                        "value3": "5.200"
+                    },
+                    {
+                        "value1": "Phí thời gian di chuyển (VNĐ/phút)",
+                        "value2": "275",
+                        "value3": "290"
+                    }
+                ]
+            },
+            {
+                "city": "Đà Nẵng",
+                "items": [
+                    {
+                        "value1": "Giá khởi hành (02 km đầu)",
+                        "value2": "12.000",
+                        "value3": "12.800"
+                    },
+                    {
+                        "value1": "Giá tiếp theo (từ km tiếp theo)",
+                        "value2": "4.500",
+                        "value3": "4.800"
+                    }
+                ]
+            },
+            {
+                "city": "Bình Dương",
+                "items": [
+                    {
+                        "value1": "Giá khởi hành (02 km đầu)",
+                        "value2": "12.200",
+                        "value3": "14.800"
+                    },
+                    {
+                        "value1": "Giá tiếp theo (từ km tiếp theo)",
+                        "value2": "4.200",
+                        "value3": "5.100"
+                    },
+                    {
+                        "value1": "Phí thời gian di chuyển (VNĐ/phút)",
+                        "value2": "275",
+                        "value3": null
+                    }
+                ]
+            },
+            {
+                "city": "Đồng Nai",
+                "items": [
+                    {
+                        "value1": "Giá khởi hành (02 km đầu)",
+                        "value2": "12.200",
+                        "value3": "14.800"
+                    },
+                    {
+                        "value1": "Giá tiếp theo (từ km tiếp theo)",
+                        "value2": "4.200",
+                        "value3": "5.100"
+                    },
+                    {
+                        "value1": "Phí thời gian di chuyển (VNĐ/phút)",
+                        "value2": "275",
+                        "value3": null
+                    }
+                ]
+            },
+            {
+                "city": "Bà Rịa - Vũng Tàu",
+                "items": [
+                    {
+                        "value1": "Giá khởi hành (02 km đầu)",
+                        "value2": "12.200",
+                        "value3": null
+                    },
+                    {
+                        "value1": "Giá tiếp theo (từ km tiếp theo)",
+                        "value2": "4.200",
+                        "value3": null
+                    },
+                    {
+                        "value1": "Phí thời gian di chuyển (VNĐ/phút)",
+                        "value2": "275",
+                        "value3": null
+                    }
+                ]
+            },
+            {
+                "city": "Hội An",
+                "items": [
+                    {
+                        "value1": "Giá khởi hành (02 km đầu)",
+                        "value2": "12.200",
+                        "value3": "12.800"
+                    },
+                    {
+                        "value1": "Giá tiếp theo (từ km tiếp theo)",
+                        "value2": "4.500",
+                        "value3": "4.800"
+                    }
+                ]
+            },
+            {
+                "city": "Quảng Ninh",
+                "items": [
+                    {
+                        "value1": "Giá khởi hành (02 km đầu)",
+                        "value2": "12.000",
+                        "value3": null
+                    },
+                    {
+                        "value1": "Giá tiếp theo (từ km tiếp theo)",
+                        "value2": "4.500",
+                        "value3": null
+                    }
+                ]
+            },
+            {
+                "city": "Khánh Hòa",
+                "items": [
+                    {
+                        "value1": "Giá khởi hành (02 km đầu)",
+                        "value2": "12.000",
+                        "value3": null
+                    },
+                    {
+                        "value1": "Giá tiếp theo (từ km tiếp theo)",
+                        "value2": "4.500",
+                        "value3": null
+                    },
+                    {
+                        "value1": "Phí thời gian di chuyển (VNĐ/phút)",
+                        "value2": "275",
+                        "value3": null
+                    }
+                ]
+            },
+            {
+                "city": "Nghệ An",
+                "items": [
+                    {
+                        "value1": "Giá khởi hành (02 km đầu)",
+                        "value2": "13.500",
+                        "value3": null
+                    },
+                    {
+                        "value1": "Giá tiếp theo (từ km tiếp theo)",
+                        "value2": "4.200",
+                        "value3": null
+                    },
+                    {
+                        "value1": "Phí thời gian di chuyển (VNĐ/phút)",
+                        "value2": "280",
+                        "value3": null
+                    }
+                ]
+            },
+            {
+                "city": "TP Huế",
+                "items": [
+                    {
+                        "value1": "Giá khởi hành (02 km đầu)",
+                        "value2": "13.500",
+                        "value3": null
+                    },
+                    {
+                        "value1": "Giá tiếp theo (từ km tiếp theo)",
+                        "value2": "4.200",
+                        "value3": null
+                    },
+                    {
+                        "value1": "Phí thời gian di chuyển (VNĐ/phút)",
+                        "value2": "280",
+                        "value3": null
+                    }
+                ]
+            },
+            {
+                "city": "Hải Phòng",
+                "items": [
+                    {
+                        "value1": "Giá khởi hành (02 km đầu)",
+                        "value2": "13.500",
+                        "value3": null
+                    },
+                    {
+                        "value1": "Giá tiếp theo (từ km tiếp theo)",
+                        "value2": "4.200",
+                        "value3": null
+                    },
+                    {
+                        "value1": "Phí thời gian di chuyển (VNĐ/phút)",
+                        "value2": "280",
+                        "value3": null
+                    }
+                ]
+            }
+        ]
             },
             "premium": {
                 "columns": "Giá dịch vụ|Giá niêm yết (VNĐ)",
