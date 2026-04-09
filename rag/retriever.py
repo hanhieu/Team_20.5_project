@@ -8,8 +8,8 @@ logger = logging.getLogger(__name__)
 def retrieve(query: str, user_type: str, top_k: int = 2) -> list[dict]:
     collection = get_collection()
 
-    def _query(where: dict | None) -> list[dict]:
-        kwargs = dict(query_texts=[query], n_results=top_k)
+    def _query(where: dict | None, n: int = top_k) -> list[dict]:
+        kwargs = dict(query_texts=[query], n_results=n)
         if where:
             kwargs["where"] = where
         results = collection.query(**kwargs)
@@ -27,8 +27,8 @@ def retrieve(query: str, user_type: str, top_k: int = 2) -> list[dict]:
     # Search 1: filtered by user_type (skip if not provided)
     typed_chunks = _query({"user_type": user_type}) if user_type else []
 
-    # Search 2: no filter (community + all types)
-    all_chunks = _query(None)
+    # Search 2: no filter — double top_k if no role to compensate
+    all_chunks = _query(None, n=top_k if user_type else top_k * 2)
 
     # Merge, deduplicate by question text, typed results first
     seen = set()

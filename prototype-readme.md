@@ -24,7 +24,7 @@ User nhập câu hỏi
     ↓
 RAG Retriever:
   ├─ Search 1: WHERE user_type = <loại đã chọn>  → top 3 chunks  (bỏ qua nếu không chọn role)
-  └─ Search 2: no filter (toàn bộ DB)            → top 3 chunks [Cộng đồng + all]
+  └─ Search 2: no filter (toàn bộ DB)            → top 3 chunks (có role) / top 6 chunks (không có role)
     ↓
 Deduplicate & merge (tối đa ~6 unique chunks)
     ↓

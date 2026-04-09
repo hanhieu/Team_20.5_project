@@ -15,7 +15,7 @@ from rag.vectorstore import get_collection
 DATA_PATH = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
     "Dataset",
-    "dataset_facebook-groups-scraper_2026-04-08_10-37-28-290.json",
+    "dataset_facebook-groups-scraper_2026-04-08_10-56-16-341.json",
 )
 
 # Map groupTitle keywords → user_type (edit as needed)
