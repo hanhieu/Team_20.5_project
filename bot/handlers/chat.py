@@ -7,6 +7,7 @@ from openai import AsyncOpenAI
 from config import OPENAI_API_KEY, OPENAI_MODEL, TOP_K
 from rag.retriever import retrieve
 from bot.tools.fare_data import FARE_TOOL_DEFINITION, execute_tool
+from bot.tools.query_rewriter import rewrite_query
 
 logger = logging.getLogger(__name__)
 
@@ -51,17 +52,8 @@ async def handle_chat(user_message: str, user_type: str):
     t0 = time.monotonic()
     logger.info("[CHAT] user_type=%s | msg=%r", user_type, user_message[:100])
 
-    # Build contextual RAG query
     history: list[dict] = cl.user_session.get("history") or []
-    rag_query = user_message
-    if ("?" not in user_message or len(user_message) < 80) and history:
-        last_user_q = next(
-            (m["content"] for m in reversed(history) if m["role"] == "user"),
-            None,
-        )
-        if last_user_q:
-            rag_query = f"{last_user_q} {user_message}"
-            logger.debug("[CHAT] contextual RAG query=%r", rag_query[:120])
+    rag_query = await rewrite_query(user_message, history)
 
     chunks = retrieve(rag_query, user_type, top_k=TOP_K)
 
