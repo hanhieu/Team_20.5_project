@@ -1,4 +1,8 @@
+import logging
+
 from rag.vectorstore import get_collection
+
+logger = logging.getLogger(__name__)
 
 
 def retrieve(query: str, user_type: str, top_k: int = 2) -> list[dict]:
@@ -34,5 +38,15 @@ def retrieve(query: str, user_type: str, top_k: int = 2) -> list[dict]:
         if key not in seen:
             seen.add(key)
             merged.append(chunk)
+
+    logger.info(
+        "[RAG] user_type=%s | typed=%d all=%d merged=%d | query=%r",
+        user_type, len(typed_chunks), len(all_chunks), len(merged), query[:80],
+    )
+    for i, c in enumerate(merged):
+        logger.debug(
+            "[RAG] chunk[%d] score=%.4f cat=%s | %s",
+            i, c["score"], c["category"], c["question"][:60],
+        )
 
     return merged
