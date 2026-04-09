@@ -8,8 +8,8 @@ __pycache__/
 .chromadb/
 
 # Chainlit
-# .chainlit/
-# chainlit.md
+.chainlit/
+chainlit.md
 
 # VSCode
 .vscode/
