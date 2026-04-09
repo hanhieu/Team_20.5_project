@@ -24,8 +24,8 @@ def retrieve(query: str, user_type: str, top_k: int = 2) -> list[dict]:
                 })
         return chunks
 
-    # Search 1: filtered by user_type
-    typed_chunks = _query({"user_type": user_type})
+    # Search 1: filtered by user_type (skip if not provided)
+    typed_chunks = _query({"user_type": user_type}) if user_type else []
 
     # Search 2: no filter (community + all types)
     all_chunks = _query(None)
@@ -44,9 +44,9 @@ def retrieve(query: str, user_type: str, top_k: int = 2) -> list[dict]:
         user_type, len(typed_chunks), len(all_chunks), len(merged), query[:80],
     )
     for i, c in enumerate(merged):
-        logger.debug(
-            "[RAG] chunk[%d] score=%.4f cat=%s | %s",
-            i, c["score"], c["category"], c["question"][:60],
+        logger.info(
+            "[RAG] chunk[%d] score=%.4f cat=%s | Q: %s | A: %s",
+            i, c["score"], c["category"], c["question"][:100], c["answer"][:100],
         )
 
     return merged

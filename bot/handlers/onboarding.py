@@ -15,7 +15,7 @@ async def ask_user_type():
         for key, label in USER_TYPE_LABELS.items()
     ]
     await cl.Message(
-        content="Xin chào! Bạn là ai? Vui lòng chọn loại tài khoản của bạn:",
+        content="Xin chào! Trợ lý ảo XanhSM đã sẵn sàng hỗ trợ bạn!\nVui lòng mô tả vai trò của bạn:",
         actions=actions,
     ).send()
 

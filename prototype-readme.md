@@ -16,19 +16,21 @@ Chatbot AI hỗ trợ khách hàng Xanh SM trả lời câu hỏi theo từng nh
 ## Kiến trúc hệ thống
 
 ```
-User chọn loại tài khoản (4 nút)
+User chọn loại tài khoản (tùy chọn — 4 nút: Hành khách / Tài xế Taxi / Tài xế Bike / Nhà hàng)
     ↓
-Session lưu user_type
+Session lưu user_type (hoặc None nếu bỏ qua)
     ↓
 User nhập câu hỏi
     ↓
 RAG Retriever:
-  ├─ Search 1: WHERE user_type = <loại đã chọn>  → top 2 chunks [Chính thức]
-  └─ Search 2: no filter (toàn bộ DB)            → top 2 chunks [Cộng đồng + all]
+  ├─ Search 1: WHERE user_type = <loại đã chọn>  → top 3 chunks  (bỏ qua nếu không chọn role)
+  └─ Search 2: no filter (toàn bộ DB)            → top 3 chunks [Cộng đồng + all]
     ↓
-Deduplicate & merge (tối đa ~4 chunks)
+Deduplicate & merge (tối đa ~6 unique chunks)
     ↓
-GPT-4o stream response (có ghi rõ nguồn [Chính thức] / [Cộng đồng])
+GPT-4o stream response:
+  - [Chính thức]: ưu tiên trả lời trực tiếp
+  - [Cộng đồng]: chỉ dùng làm ngữ cảnh, không trích dẫn trực tiếp
 ```
 
 ## Tools và API đã dùng
@@ -39,7 +41,7 @@ GPT-4o stream response (có ghi rõ nguồn [Chính thức] / [Cộng đồng])
 | **AI** | OpenAI GPT-4o (`gpt-4o`) |
 | **Embedding** | `keepitreal/vietnamese-sbert` — SentenceTransformer cho tiếng Việt |
 | **Vector DB** | ChromaDB (persistent, local) |
-| **RAG** | Custom retriever: dual-search (user_type filter + no filter) + dedup |
+| **RAG** | Custom retriever: dual-search (user_type filter optional + no filter) + dedup, TOP_K=3 |
 | **Knowledge base** | FAQ chính thức (`data/qa.json`) + Facebook community posts (`Dataset/`) |
 | **Social crawler** | Apify Facebook Groups Scraper → `dataset_facebook-groups-scraper_*.json` |
 
