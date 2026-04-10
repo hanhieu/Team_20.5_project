@@ -7,6 +7,13 @@ USER_TYPE_LABELS = {
     "nha_hang": "🍜 Nhà hàng",
 }
 
+SUGGESTED_QUESTIONS = [
+    ("Làm thế nào để đặt chuyến xe di chuyển trên ứng dụng?", "🚗 Đặt chuyến xe"),
+    ("Giá cước các dịch vụ Xanh SM hiện tại là bao nhiêu?", "💰 Giá cước dịch vụ"),
+    ("Tôi muốn đăng ký làm tài xế Xanh SM", "📋 Đăng ký tài xế"),
+    ("Tôi gặp tai nạn", "🆘 Tôi gặp tai nạn"),
+]
+
 BOT_NAME = "XanhSM"
 
 
@@ -24,7 +31,23 @@ async def ask_user_type():
     await cl.Message(
         content="Xin chào! Trợ lý ảo XanhSM đã sẵn sàng hỗ trợ bạn!\nVui lòng mô tả vai trò của bạn:",
         actions=actions,
-        author=BOT_NAME  # 👈 thêm author
+        author=BOT_NAME
+    ).send()
+
+    suggestion_actions = [
+        cl.Action(
+            name="suggest_question",
+            value=question,
+            label=label,
+            payload={"question": question}
+        )
+        for question, label in SUGGESTED_QUESTIONS
+    ]
+
+    await cl.Message(
+        content="Câu hỏi gợi ý:",
+        actions=suggestion_actions,
+        author=BOT_NAME
     ).send()
 
 
@@ -38,5 +61,15 @@ async def on_set_type(action: cl.Action):
 
     await cl.Message(
         content=f"Đã xác nhận: **{label}**. Bạn có thể đặt câu hỏi ngay bây giờ!",
-        author=BOT_NAME  
+        author=BOT_NAME
     ).send()
+
+
+@cl.action_callback("suggest_question")
+async def on_suggest_question(action: cl.Action):
+    from bot.router import route
+
+    question = action.payload["question"]
+    await cl.Message(content=question, author="Bạn").send()
+    fake_msg = cl.Message(content=question)
+    await route(fake_msg)
