@@ -1,6 +1,6 @@
 # WORKSHEET 5 — Skills Map & Track Direction
 
-**Nhóm:** 29 · **Lớp:** E403  
+**Nhóm:** 20 · **Lớp:** E403  
 **Thời gian:** 11:25–11:45  
 **Chủ đề:** Chatbot AI hỗ trợ đa vai trò Xanh SM
 
@@ -87,7 +87,7 @@ Nhóm đã có nền tảng kỹ thuật AI Engineering vững (RAG, tool callin
 
 | | |
 |---|---|
-| **Tên nhóm** | Nhóm 29 — E403 |
+| **Tên nhóm** | Nhóm 20 — E403 |
 | **Chủ đề** | Xanh SM AI Support Chatbot |
 | **3 ràng buộc enterprise lớn nhất** | 1. PII data residency — thông tin tài xế không được rời Việt Nam (Nghị định 13/2023) · 2. Audit trail đầy đủ mọi interaction · 3. Integration với hệ thống core Xanh SM (giá cước real-time, trạng thái tài xế) |
 | **Cost driver lớn nhất** | GPT-4o input token cost — system prompt (~800t) + RAG context (~600t) + history (~400t) = ~1.800t/request, chiếm ~73% tổng cost |

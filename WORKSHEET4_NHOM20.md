@@ -1,6 +1,6 @@
 # WORKSHEET 4 — Scaling & Reliability Tabletop
 
-**Nhóm:** 29 · **Lớp:** E403  
+**Nhóm:** 20 · **Lớp:** E403  
 **Thời gian:** 10:50–11:25  
 **Chủ đề:** Chatbot AI hỗ trợ đa vai trò Xanh SM
 

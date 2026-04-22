@@ -1,6 +1,6 @@
 # WORKSHEET 2 — Cost Anatomy Lab
 
-**Nhóm:** 29 · **Lớp:** E403  
+**Nhóm:** 20 · **Lớp:** E403  
 **Thời gian:** 09:35–10:15  
 **Chủ đề:** Chatbot AI hỗ trợ đa vai trò Xanh SM
 

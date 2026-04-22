@@ -1,6 +1,6 @@
 # WORKSHEET 1 — Enterprise Deployment Clinic
 
-**Nhóm:** 29 · **Lớp:** E403  
+**Nhóm:** 20 · **Lớp:** E403  
 **Thời gian:** 08:40–09:25  
 **Chủ đề:** Chatbot AI hỗ trợ đa vai trò Xanh SM
 

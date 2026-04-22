@@ -1,6 +1,6 @@
 # WORKSHEET 0 — Learning Timeline
 
-**Nhóm:** 29 · **Lớp:** E403  
+**Nhóm:** 20 · **Lớp:** E403  
 **Thời gian:** 08:15–08:40  
 **Chủ đề xuyên suốt:** Trợ lý ảo AI Agent hỗ trợ đa vai trò trong hệ sinh thái Xanh SM
 
